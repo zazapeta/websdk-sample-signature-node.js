@@ -35,16 +35,18 @@ app.post('/meetings', (req, res) => {
     'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IjZlYUw5dnh5Umhpb1ZpZUF1TUFDWGciLCJleHAiOjE2MTEyMzU2MzEsImlhdCI6MTYxMDYzMDgzMX0.7WmyuGgbaZTYH0FdexR9OGs0SX8fb5pm3mhVsZYUSfY';
   axios
     .post(
-      `${baseUrl}/me/meetings`,
+      `https://api.zoom.us/v2/users/me/meetings`,
       {
-        password: 'syment2021', // TODO: wath to do with this one ?
-        settings: {
-          mute_upon_entry: true,
-          participant_video: false,
-          waiting_room: true,
+        body: {
+          password: 'syment2021',
+          settings: {
+            mute_upon_entry: true,
+            participant_video: false,
+            waiting_room: true,
+          },
+          topic: 'string',
+          type: 1,
         },
-        topic: 'string', // TODO: assembly number maybe ?
-        type: 1, // Instant meeting
       },
       {
         headers: {
